@@ -34,12 +34,23 @@ def NBAccuracy(features_train, labels_train, features_test, labels_test):
 	#Create classifer
 	classifer = GaussianNB();
 	
+	#Timing fit algorithm
+	t0 = time();
+	
 	#Fit classier on the training features
 	classifer.fit(features_train, labels_train);
+	
+	print "Training Time: ", round(time() - t0, 3), "s";
+	
 	GaussianNB();
+	
+	#Timing prediction algorithm
+	t0=time();
 	
 	#Use trained classifer to predict labels for test features
 	pred = classifer.predict(features_test);
+	
+	print "Prediction Time: ", round(time() - t0, 3), "s";
 	
 	#Calculate accuracy from features_test with answer in labels_test
 	
