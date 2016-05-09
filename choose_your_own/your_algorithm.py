@@ -35,14 +35,12 @@ plt.ylabel("grade")
 import sys
 from time import time
 from sklearn.metrics import accuracy_score
+import numpy
 
 #Imports for KNeighborsClassifier
 from sklearn.neighbors import KNeighborsClassifier
-import numpy
 
 #Imports for Adaboost
-from sklearn.cross_validation import cross_val_score
-from sklearn.datasets import load_iris
 from sklearn.ensemble import AdaBoostClassifier
 
 #Variable to switch between classifiers to run
@@ -101,6 +99,9 @@ def adaboost(features_test, features_train, labels_test, labels_train):
     
     print "Accuracy: ", ada_acc;
     return clf;
+
+
+    
 
 if selectedClassifier == "knnbrs":
     clf = kNearestNeighbors(features_test, features_train, labels_test, labels_train);
