@@ -57,7 +57,7 @@ selectedClassifier = "knn";
 def kNearestNeighbors(features_test, features_train,labels_test,labels_train):    
     print "Using K Nearest Neighbors"
     #Setup classifier
-    clf = KNeighborsClassifier(algorithm='ball_tree');
+    clf = KNeighborsClassifier(algorithm='ball_tree',n_jobs=-1,weights='distance');
     
     #Timing fit algorithm
     t0 = time();
@@ -83,7 +83,7 @@ def kNearestNeighbors(features_test, features_train,labels_test,labels_train):
 def adaboost(features_test, features_train, labels_test, labels_train):
     print "Using Adaboost"
     #Setup Classifier
-    clf = AdaBoostClassifier(n_estimators=100)
+    clf = AdaBoostClassifier(n_estimators=100, learning_rate=.125)
     
     #Timing Fit Algorithm
     t0 = time();
@@ -108,7 +108,7 @@ def adaboost(features_test, features_train, labels_test, labels_train):
 def rforest(features_test, features_train, labels_test, labels_train):
     print "Using Random Forest"
     #Setup Classifier
-    clf = RandomForestClassifier(n_estimators=10);
+    clf = RandomForestClassifier(n_estimators=10,n_jobs=-1, min_samples_split=7);
     
     #Timing Fit Algorithm
     t0 = time();
