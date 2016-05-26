@@ -19,4 +19,17 @@ import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
+print "No. of Data Points: ", len(enron_data);
 
+enron_features = sum(len(v) for v in enron_data.itervalues());
+
+print "No. of Features ", enron_features;  
+
+#Counting POIs
+#POIs = sum(PPOI[poi] == "True" for PPOI in enron_data.itervalues());
+POI_Count = 0;
+for PPOI in enron_data.itervalues():
+    if PPOI["poi"] is True:
+        POI_Count += 1;
+    
+print "No. of POIs ", POI_Count;
