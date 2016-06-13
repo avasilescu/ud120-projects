@@ -19,14 +19,14 @@ import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
-print "No. of Data Points: ", len(enron_data);
+data_points = len(enron_data);
+
+print "No. of Data Points: ", data_points;
 
 enron_features = sum(len(v) for v in enron_data.itervalues());
 
 print "No. of Features ", enron_features;  
 
-#Counting POIs
-#POIs = sum(PPOI[poi] == "True" for PPOI in enron_data.itervalues());
 POI_Count = 0;
 for PPOI in enron_data.itervalues():
     if PPOI["poi"] is True:
@@ -47,3 +47,23 @@ fastow_total = enron_data["FASTOW ANDREW S"]["total_payments"];
 print "Skilling Total:", skilling_total;
 print "Lay Total:", lay_total;
 print "Fastow Total:", fastow_total;
+
+salaried = 0;
+known_email = 0;
+total_paid = 0;
+
+for person in enron_data.itervalues():
+    if person["salary"] != "NaN":
+        salaried += 1;
+    if person["email_address"] != "NaN":
+        known_email += 1;
+    if person["total_payments"] != "NaN":
+        total_paid += 1;
+
+total_paid_NaN = data_points - total_paid;
+percentage_total_paid_NaN = (total_paid_NaN/float(data_points))*100;
+
+print "No. of Salaries:", salaried;
+print "No. of Known Email Address:", known_email;
+print "No. of Total Paid NaN:", total_paid_NaN;
+print "Percentage of Total Paid NaN:", percentage_total_paid_NaN;
