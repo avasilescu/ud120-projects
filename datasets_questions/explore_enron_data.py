@@ -28,10 +28,16 @@ enron_features = sum(len(v) for v in enron_data.itervalues());
 print "No. of Features ", enron_features;  
 
 POI_Count = 0;
-for PPOI in enron_data.itervalues():
-    if PPOI["poi"] is True:
+POI_total_payments_NaN = 0;
+
+for person in enron_data.itervalues():
+    if person["poi"] is True:
         POI_Count += 1;
-    
+        if person["total_payments"] == "NaN":
+            POI_total_payments_NaN += 1;
+
+percentage_POI_total_payments_NaN = (POI_total_payments_NaN/float(POI_Count))*100;
+
 print "No. of POIs ", POI_Count;
 
 print "Total Stock Value for James Prentice:", enron_data["PRENTICE JAMES"]["total_stock_value"];
@@ -67,3 +73,5 @@ print "No. of Salaries:", salaried;
 print "No. of Known Email Address:", known_email;
 print "No. of Total Paid NaN:", total_paid_NaN;
 print "Percentage of Total Paid NaN:", percentage_total_paid_NaN;
+print "No. of POI of Total Paid NaN:", POI_total_payments_NaN;
+print "Percentage of POI Total Paid NaN:", percentage_POI_total_payments_NaN;
