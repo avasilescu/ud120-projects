@@ -33,3 +33,17 @@ for PPOI in enron_data.itervalues():
         POI_Count += 1;
     
 print "No. of POIs ", POI_Count;
+
+print "Total Stock Value for James Prentice:", enron_data["PRENTICE JAMES"]["total_stock_value"];
+
+print "Emails from Wesley Colwell to POIs:", enron_data["COLWELL WESLEY"]["from_this_person_to_poi"];
+
+print "Value of stock options exercised by Jeffrey Skilling:", enron_data["SKILLING JEFFREY K"]["exercised_stock_options"];
+
+skilling_total = enron_data["SKILLING JEFFREY K"]["total_payments"];
+lay_total = enron_data["LAY KENNETH L"]["total_payments"];
+fastow_total = enron_data["FASTOW ANDREW S"]["total_payments"];
+
+print "Skilling Total:", skilling_total;
+print "Lay Total:", lay_total;
+print "Fastow Total:", fastow_total;
