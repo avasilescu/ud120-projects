@@ -30,11 +30,11 @@ ages_train, ages_test, net_worths_train, net_worths_test = train_test_split(ages
 reg = linear_model.LinearRegression();
 reg.fit(ages_train, net_worths_train);
 
+print("Before Outline Cleaning");
 print("Coefficients: ", reg.coef_);
 print("Intercept: ", reg.intercept_);
 
 print("Score based on test set: ", reg.score(ages_test, net_worths_test));
-
 
 
 try:
@@ -46,7 +46,7 @@ plt.show()
 
 
 ### identify and remove the most outlier-y points
-cleaned_data = []
+
 try:
     predictions = reg.predict(ages_train)
     cleaned_data = outlierCleaner( predictions, ages_train, net_worths_train )
@@ -83,3 +83,11 @@ if len(cleaned_data) > 0:
 else:
     print "outlierCleaner() is returning an empty list, no refitting to be done"
 
+reg_post = linear_model.LinearRegression();
+reg_post.fit(ages, net_worths);
+
+print("After Outlier Cleaning");
+print("Coefficients: ", reg_post.coef_);
+print("Intercept: ", reg_post.intercept_);
+
+print("Score based on test set: ", reg_post.score(ages_test, net_worths_test));
