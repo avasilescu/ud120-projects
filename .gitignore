@@ -10,6 +10,6 @@ my_dataset.pkl
 my_feature_list.pkl
 .DS_Store
 .browse.VC.db
-launch.json
+.vscode
 choose_your_own/test.png
-
+k_means/clusters.pdf
