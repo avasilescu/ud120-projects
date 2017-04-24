@@ -43,6 +43,13 @@ data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "r")
 ### there's an outlier--remove it! 
 data_dict.pop("TOTAL", 0)
 
+### Answers for "Stock Options Range" Quiz
+feature_4 = "exercised_stock_options"
+exercised_stock_options_data = featureFormat(data_dict, [feature_4])
+max_stock_options = max(exercised_stock_options_data)
+min_stock_options = min(exercised_stock_options_data)
+print "Maximum Exercised Stock Options Value: ", max_stock_options
+print "Minimum Exercised Stock Options Value: ", min_stock_options
 
 ### the input features we want to use 
 ### can be any key in the person-level dictionary (salary, director_fees, etc.) 
