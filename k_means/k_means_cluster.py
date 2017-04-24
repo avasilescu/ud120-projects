@@ -61,6 +61,12 @@ features_list = [poi, feature_1, feature_2, feature_3]
 data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
+### Answers for "Salary Range" Quiz
+salary_data = featureFormat(data_dict, [feature_1])
+max_salary = max(salary_data)
+min_salary = min(salary_data)
+print "Maximum Salary Value: ", max_salary
+print "Minimum Salary Value: ", min_salary
 
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to 
