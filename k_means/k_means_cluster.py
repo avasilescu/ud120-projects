@@ -68,6 +68,15 @@ min_salary = min(salary_data)
 print "Maximum Salary Value: ", max_salary
 print "Minimum Salary Value: ", min_salary
 
+scale_salary = 200000.00
+q16_salary = (scale_salary - min_salary)/(max_salary - min_salary)
+
+scale_stock_options = 1000000.00
+q16_stock = (scale_stock_options - min_stock_options)/(max_stock_options - min_stock_options)
+
+print "Scaled 200k Salary: ", q16_salary
+print "Scaled 1M Stock Options: ", q16_stock
+
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to 
 ### for f1, f2, _ in finance_features:
